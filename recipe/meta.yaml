@@ -1,4 +1,4 @@
-{% set version = "0.11.1" %}
+{% set version = "0.11.2" %}
 
 package:
   name: toolz
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/t/toolz/toolz-{{ version }}.tar.gz
-  sha256: c7a47921f07822fe534fb1c01c9931ab335a4390c782bd28c6bcc7c2f71f3fbf
+  sha256: 6b312d5e15138552f1bda8a4e66c30e236c831b612b2bf0005f8a1df10a4bc33
 
 build:
   number: 0
