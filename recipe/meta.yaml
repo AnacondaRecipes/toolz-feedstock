@@ -10,28 +10,40 @@ source:
 
 build:
   number: 0
+  skip: True  # [py<35]
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
     - python >=3.5
 
 test:
   imports:
+    - tlz
     - toolz
     - toolz.curried
     - toolz.functoolz
     - toolz.sandbox
+  requires:
+    - pip
+    - python <3.10
+    - pytest
+  commands:
+    - pip check
+    - pytest -x --doctest-modules --pyargs toolz
 
 about:
   home: http://toolz.readthedocs.org/
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE.txt
-  summary: A functional standard library for Python
+  summary: List processing tools and functional utilities
   description: |
     Toolz provides a set of utility functions for iterators, functions, and
     dictionaries. These functions interoperate well and form the building
