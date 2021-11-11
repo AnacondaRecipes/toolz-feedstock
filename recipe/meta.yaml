@@ -1,4 +1,4 @@
-{% set version = "0.11.1" %}
+{% set version = "0.11.2" %}
 
 package:
   name: toolz
@@ -6,32 +6,44 @@ package:
 
 source:
   url: https://pypi.io/packages/source/t/toolz/toolz-{{ version }}.tar.gz
-  sha256: c7a47921f07822fe534fb1c01c9931ab335a4390c782bd28c6bcc7c2f71f3fbf
+  sha256: 6b312d5e15138552f1bda8a4e66c30e236c831b612b2bf0005f8a1df10a4bc33
 
 build:
   number: 0
+  skip: True  # [py<35]
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
     - python >=3.5
 
 test:
   imports:
+    - tlz
     - toolz
     - toolz.curried
     - toolz.functoolz
     - toolz.sandbox
+  requires:
+    - pip
+    - python <3.10
+    - pytest
+  commands:
+    - pip check
+    - pytest -x --doctest-modules --pyargs toolz
 
 about:
   home: http://toolz.readthedocs.org/
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE.txt
-  summary: A functional standard library for Python
+  summary: List processing tools and functional utilities
   description: |
     Toolz provides a set of utility functions for iterators, functions, and
     dictionaries. These functions interoperate well and form the building
