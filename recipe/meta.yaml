@@ -42,7 +42,6 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  license_url: https://github.com/pytoolz/toolz/blob/master/LICENSE.txt
   summary: List processing tools and functional utilities
   description: |
     Toolz provides a set of utility functions for iterators, functions, and
@@ -51,7 +50,6 @@ about:
     libraries itertools and functools and borrow heavily from the standard
     libraries of contemporary functional languages.
   doc_url: https://toolz.readthedocs.io/
-  doc_source_url: https://github.com/pytoolz/toolz/blob/master/doc/source/index.rst
   dev_url: https://github.com/pytoolz/toolz
 
 extra:
