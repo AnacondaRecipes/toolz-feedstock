@@ -1,5 +1,5 @@
 {% set name = "toolz" %}
-{% set version = "0.12.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/toolz-{{ version }}.tar.gz
-  sha256: 88c570861c440ee3f2f6037c4654613228ff40c93a6c25e0eba70d17282c6194
+  sha256: 2c86e3d9a04798ac556793bced838816296a2f085017664e4995cb40a1047a02
 
 build:
   number: 0
-  skip: True  # [py<35]
-  script: {{ PYTHON }} -m pip install . -vv
+  skip: True  # [py<38]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -42,7 +42,6 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  license_url: https://github.com/pytoolz/toolz/blob/master/LICENSE.txt
   summary: List processing tools and functional utilities
   description: |
     Toolz provides a set of utility functions for iterators, functions, and
@@ -51,7 +50,6 @@ about:
     libraries itertools and functools and borrow heavily from the standard
     libraries of contemporary functional languages.
   doc_url: https://toolz.readthedocs.io/
-  doc_source_url: https://github.com/pytoolz/toolz/blob/master/doc/source/index.rst
   dev_url: https://github.com/pytoolz/toolz
 
 extra:
