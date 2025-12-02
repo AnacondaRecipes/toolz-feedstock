@@ -39,7 +39,7 @@ test:
     - pytest --doctest-modules --pyargs toolz
 
 about:
-  home: https://toolz.readthedocs.io/
+  home: https://github.com/pytoolz/toolz
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
